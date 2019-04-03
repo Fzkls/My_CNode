@@ -30,6 +30,6 @@
   ],
   "devDependencies": {
     "babel-plugin-import": "^1.11.0",
-    "react-app-rewired": "^2.1.1"
+    "react-app-rewired": "^2.0.2-next.0"
   }
 }
