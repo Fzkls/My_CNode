@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-
+import './view/index.css';
+import MainHeader from './view/main-header';
+import MainFooter from './view/main-footer';
+import RouterIndex from './router/router'
 class App extends Component {
   render() {
     return (
-      <h1>准备开发了</h1>
+      <div className='pageWrap'>
+        <MainHeader/>
+        <MainFooter/>
+      </div>
     );
   }
 }

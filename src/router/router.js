@@ -13,10 +13,10 @@ export default class RouterIndex extends Component{
                         <Redirect to="/index"/>
                 )}/>
                 <Route path="/index" component={Index}/>
-                <Route path="/book" component={Index}/>
-                <Route path="/about" component={Index}/>
-                <Route path="/" component={Index}/>
-                <Route path="/" component={Index}/>
+                <Route path="/book" component={Book}/>
+                <Route path="/about" component={About}/>
+                <Route path="/user" component={User}/>
+                <Route path="/details" component={Details}/>
 
             </Switch>
         )
