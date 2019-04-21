@@ -4,8 +4,9 @@ import data from './data';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import TxtTag from '../txtTag';
-export default class IndexList extends React.Component{
+class IndexList extends React.Component{
     render(){
+        console.info(this.props);
         return(
             <List 
                 loading={false}
@@ -27,3 +28,5 @@ export default class IndexList extends React.Component{
         )
     }
 }
+
+export default connect(state=>state.list)(IndexList);

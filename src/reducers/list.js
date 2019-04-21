@@ -1,4 +1,6 @@
-function list(state={},action) {
+function list(state={
+    loading:true
+},action) {
     switch (action.type) {
         default:
             return state;
