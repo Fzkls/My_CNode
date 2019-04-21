@@ -1,7 +1,12 @@
-import React,{Component} from 'react';
-
-export default class About extends Component{
+import React from 'react';
+import data from './data';
+import PublicCard from '../publicCard';
+export default class About extends React.Component{
     render(){
-        return "关于";
+        return (
+            <PublicCard
+                data={data}
+                />
+        );
     }
 }

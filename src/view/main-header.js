@@ -8,10 +8,10 @@ export default class MainHeader extends Component{
         return(
             <Layout.Header>
                 <Row className='warp'>
-                    <Col md={6} xs={24} xl={6}>
+                    <Col md={6} xs={24}>
                         <h1 id='logo'>cNode</h1>
                     </Col>
-                    <Col md={18} xs={0} xl={18}>
+                    <Col md={18} xs={0}>
                         <Divider className='headerDivider' type='vertical'/>
                         <Nav
                             id='nav'
