@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.warp {
+.wrap {
     max-width: 980px;
     margin: 0 auto!important;
 }
@@ -44,7 +44,7 @@
     flex:1;
 }
 
-.main .warp{
+.main .wrap{
     border: 1px solid #ccc;
     border-top: none;
 }
@@ -86,7 +86,7 @@
     
 }
 
-.warp img {
+.wrap img {
     width: 100%;
 }
 
@@ -101,6 +101,53 @@
 
 .ant-list-item-action {
     margin-left: 48px;
+}
+
+.userAvatar{
+    display: block!important;
+    margin: 10px auto!important;
+    width: 100px!important;
+    height: 100px!important;
+}
+
+.userInfo{
+    text-align: center;
+    line-height: 24px;
+    padding-bottom: 10px;
+
+}
+
+.userList .ant-list-item{
+    position: relative;
+}
+
+.userList .userName{
+    margin: 0 10px 0 5px;
+}
+
+.userList time{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.userList .ant-list-item-content {
+    display: block;
+}
+
+.userList h4{
+    display: inline-block;
+    margin: 0;
+}
+
+.userList .ant-list-item *{
+    vertical-align: middle;
+}
+
+@media add and (max-width:767px){
+    .userList h4{
+        display: block;
+    }
 }
 /*
     自制自适应布局

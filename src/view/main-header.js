@@ -7,7 +7,7 @@ export default class MainHeader extends Component{
     render(){
         return(
             <Layout.Header>
-                <Row className='warp'>
+                <Row className='wrap'>
                     <Col md={6} xs={24}>
                         <h1 id='logo'>cNode</h1>
                     </Col>

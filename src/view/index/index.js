@@ -5,7 +5,7 @@ import IndexList from './list';
 export default class Index extends React.Component{
     render(){
         return (
-            <Row className='warp'>
+            <Row className='wrap'>
             <Col md={6} xs={0} className='indexSider'>
                 <IndexMenu
                     mode='vertical'

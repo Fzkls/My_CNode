@@ -2,6 +2,7 @@ import React from 'react';
 import {List, Avatar} from 'antd';
 import data from './data';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux';
 import TxtTag from '../txtTag';
 export default class IndexList extends React.Component{
     render(){

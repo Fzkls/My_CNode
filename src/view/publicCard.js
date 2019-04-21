@@ -4,7 +4,7 @@ export default class PublicCard extends React.Component{
     render(){
         let data=this.props.data;
         return (
-            <div className='warp'>
+            <div className='wrap'>
                 {data.map((item,index)=>(<Card
                     title={item.title}
                     type='inner'

@@ -5,7 +5,7 @@ import ReplayList from './replayList'
 export default class Details extends React.Component{
     render(){
         return (
-            <div className='warp'>
+            <div className='wrap'>
             <TxtDetails 
                 data={data.data}
                 loading={false}
