@@ -1,7 +1,23 @@
 function list(state={
-    loading:true
+    loading:true,
+    data:[],
 },action) {
     switch (action.type) {
+        case 'LIST_UPDATA':
+            return{
+                loading:true,
+                data:state.data
+            }
+        case 'LIST_UPDATA_SUC':
+            return{
+                loading:false,
+                data:action.data.data
+            }
+            case 'LIST_UPDATA_ERR':
+            return{
+                loading:false,
+                data:[]
+            }
         default:
             return state;
     }
