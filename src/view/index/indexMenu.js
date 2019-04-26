@@ -1,33 +1,56 @@
 import React from 'react';
 import {Menu} from 'antd';
-import {Link} from 'react-router-dom';
-export default class IndexMenu extends React.Component{
+import tab from './tab'
+import {Link,withRouter} from 'react-router-dom';
+class IndexMenu extends React.Component{
+    
+    constructor(arg){
+        super(arg);
+        this.state={
+            activeKey:this.getActiveKey(this.props.location)
+        }
+    }
+
+    getActiveKey(location){
+        return location.pathname.split('/')[2];
+    }
+    shouldComponentUpdate(nextProps){
+        let activeKey=this.getActiveKey(nextProps.location)
+        if (activeKey!==this.state.activeKey) {
+            this.setState({
+                activeKey
+            })
+            return false;
+        }
+        return true;
+    }
+
     render(){
         return(
             <Menu 
                 id={this.props.id}
                 mode={this.props.mode}
-                defaultSelectedKeys={['indexMenuAll']}
-            >
-                    <Menu.Item key='indexMenuAll'>
-                        <Link to='/index/all'>全部</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to='/index/good'>精华</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to='/index/ask'>问题</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to='/index/share'>分享</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to='/index/job'>招聘</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to='/index/test'>测试</Link>
-                    </Menu.Item>
+                defaultSelectedKeys={[this.state.activeKey]}
+            >{
+                tab.map((item)=>{
+                    if(!item.isIndex){
+                        return false;
+                    }
+                    return(<Menu.Item key={item.tab}>
+                        <Link to={'/index/'+item.tab}>{item.txt}</Link>
+                    </Menu.Item>)
+                })
+            }
                 </Menu>
         )
     }
 }
+
+export default withRouter((props)=>{
+    let {mode,id,location}=props;
+    return <IndexMenu 
+        mode={mode}
+        id={id}
+        location={location}
+    />
+})

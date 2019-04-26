@@ -1,6 +1,6 @@
 import React from 'react';
-import {Row, Col} from 'antd';
 import IndexMenu from './indexMenu'; 
+import {Row, Col,Pagination} from 'antd';
 import IndexList from './list';
 export default class Index extends React.Component{
     render(){
@@ -24,6 +24,7 @@ export default class Index extends React.Component{
                  <IndexList
                     tab={tab}
                  />
+                 
             </Col>
             </Row>
             

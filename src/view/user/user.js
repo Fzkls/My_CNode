@@ -1,10 +1,47 @@
 import React from 'react';
 import { Avatar,Row,Col} from 'antd';
 import UserList from './userList'
-import data from './data';
-export default class User extends React.Component{
+import axios from 'axios';
+import {connect} from 'react-redux';
+class User extends React.Component{
+    constructor(arg){
+        super(arg);
+        let id =this.props.match.params.id;
+        this.getData(id);
+    }
+
+    shouldComponentUpdate(nextPorps){
+        let id=this.props.match.params.id;
+        let nextid=nextPorps.match.params.id;
+        if(id!==nextid){
+            this.getData(nextid);
+            return false;
+        }
+        return true;
+    }
+
+    getData(id){
+        this.props.dispatch((dispatch)=>{
+            dispatch({
+                type:'USER_UPDATA'
+            })
+            axios.get(`https://cnodejs.org/api/v1/user/${id}`)
+                .then((res)=>{
+                    dispatch({
+                        type:'USER_UPDATA_SUC',
+                        data:res.data
+                    })
+                }).catch((error)=>{
+                    dispatch({
+                        type:'USER_UPDATA_ERR',
+                    })
+                })
+        })
+    }
+    
     render(){
-        let {avatar_url,loginname,create_at,score,recent_topics,recent_replies} =data.data;
+        let {loading,data} = this.props;
+        let {avatar_url,loginname,create_at,score,recent_topics,recent_replies} =data;
         return (
             <div className='wrap'>
                 <Avatar src={avatar_url} className='userAvatar'/>
@@ -16,16 +53,16 @@ export default class User extends React.Component{
                         积分：<a>{score}</a>
                     </Col>
                     <Col md={8}>
-                        注册时间：<a>{create_at.split('T')[0]}</a>
+                        注册时间：<a>{create_at.split("T")[0]}</a>
                     </Col>
                 </Row>
                 <UserList
-                    loading={false}
+                    loading={loading}
                     title='最近创建的话题'
                     data={recent_topics}
                 />
                 <UserList
-                    loading={false}
+                    loading={loading}
                     title='最近回复的话题'
                     data={recent_replies}
                 />
@@ -33,3 +70,5 @@ export default class User extends React.Component{
         );
     }
 }
+
+export default connect(state=>(state.user))(User)

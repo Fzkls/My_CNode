@@ -70,12 +70,10 @@
 
 .indexList {
     padding: 0 10px!important;
+    border-left: 1px solid #e8e8e8;
+    min-height: 800px!important;
 }
 
-.indexSider{
-    border-right: 1px solid #ccc;
-    
-}
 #indexXsMenu{
     display: flex;
     text-align: center;
@@ -123,6 +121,10 @@
 
 .userList .userName{
     margin: 0 10px 0 5px;
+}
+
+.ant-list-pagination{
+    margin-bottom: 12px;
 }
 
 .userList time{
